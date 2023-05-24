@@ -3,20 +3,6 @@ console.log(galleryItems);
 
 const gallery = document.querySelector(".gallery");
 
-// function galleryList (galleryItems){
-//     return galleryItems.map(({preview, original, description}) => {
-//         return
-//         `<li class="gallery__item">
-//         <a class="gallery__link" href="${original}">
-//         <img
-//         class="gallery__image"
-//         src="${preview}"
-//         data-source="${original}"
-//         alt="${description}"/>
-//         </a>
-//         </li>`;
-//     }).join("");
-// }
 const galleryList = galleryItems.map(({preview, original, description}) => 
     `<li class="gallery__item">
         <a class="gallery__link" href="${original}">
@@ -30,7 +16,7 @@ const galleryList = galleryItems.map(({preview, original, description}) =>
 ).join("");
 
 gallery.insertAdjacentHTML("beforeend", galleryList);
-console.log (galleryList)
+console.log (galleryList);
 
 gallery.addEventListener ("click", onClickModal);
 
