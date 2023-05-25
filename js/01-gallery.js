@@ -26,18 +26,15 @@ function onClickModal(evt){
 		return
 	}
     // let selectedImage = evt.target.dataset.source;
+    
     const instance = basicLightbox.create(`
     <img src="${evt.target.dataset.source}" width="800" height="600">
-`)
+`, {onShow: (instance) => {gallery.addEventListener("keydown", onCloseModal)},
+onClose: (instance) => {gallery.removeEventListener("keydown", onCloseModal)
+}})
 instance.show()
 
-gallery.addEventListener ("keydown", onEscClick);
-
-function onCloseModal() {
-    instance.close()
-    window.removeEventListener ("keydown", onEscClick)
-}
-function onEscClick(evt) {
+function onCloseModal(evt) {
     if (evt.key === "Escape") {
         instance.close()
     }   
